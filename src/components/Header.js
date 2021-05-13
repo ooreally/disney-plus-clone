@@ -77,7 +77,7 @@ const NavMenu = styled.div`
                 left: 0;
                 right: 0;
                 bottom: -6px;
-                opacity:0.9;
+                opacity:0;
                 transform-origin: center;
                 transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
                 transform: scaleX(0);
@@ -94,8 +94,6 @@ const NavMenu = styled.div`
 
         
     }
-    
-
 `
 const UserImg= styled.img`
     width: 48px;
