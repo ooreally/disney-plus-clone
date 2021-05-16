@@ -20,12 +20,15 @@ function Header() {
     useEffect( () => {
         auth.onAuthStateChanged(async (user) => {
             if(user)
-            dispatch(setUserLogin({
-                name: user.displayName,
-                email: user.email,
-                photo: user.photoURL
-            }))
-            history.push('/');
+            {
+                dispatch(setUserLogin({
+                    name: user.displayName,
+                    email: user.email,
+                    photo: user.photoURL
+                }))
+                history.push('/');
+            }
+            
         })
     },[])
     
@@ -48,11 +51,10 @@ function Header() {
     const signOut = () => {
         auth.signOut()
         .then(
-            
-            () => {
-                   
+            () => {       
+                history.push('/login');
             dispatch(setUserLogout());
-            history.push('/login');
+            
             })
     }
     return (

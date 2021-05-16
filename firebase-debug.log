@@ -1,0 +1,31 @@
+[debug] [2021-05-16T13:23:32.345Z] ----------------------------------------------------------------------
+[debug] [2021-05-16T13:23:32.346Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2021-05-16T13:23:32.347Z] CLI Version:   9.10.2
+[debug] [2021-05-16T13:23:32.347Z] Platform:      linux
+[debug] [2021-05-16T13:23:32.347Z] Node Version:  v16.1.0
+[debug] [2021-05-16T13:23:32.347Z] Time:          Sun May 16 2021 18:53:32 GMT+0530 (India Standard Time)
+[debug] [2021-05-16T13:23:32.347Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-05-16T13:23:32.352Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-05-16T13:23:32.352Z] > authorizing via signed-in user (anu1506sri@gmail.com)
+[debug] [2021-05-16T13:23:32.352Z] [iam] checking project disney-plus--clone for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-05-16T13:23:32.354Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/disney-plus--clone:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-05-16T13:23:34.405Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 16 May 2021 13:23:34 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1434","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-16T13:23:34.410Z] > refreshing access token with scopes: []
+[debug] [2021-05-16T13:23:34.410Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-16T13:23:34.912Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","date":"Sun, 16 May 2021 13:23:34 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-16T13:23:35.043Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/disney-plus--clone [none]
+[debug] [2021-05-16T13:23:36.554Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/disney-plus--clone 200
+[debug] [2021-05-16T13:23:36.554Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/disney-plus--clone {"projectId":"disney-plus--clone","projectNumber":"769103990483","displayName":"Disney-Plus-Clone","name":"projects/disney-plus--clone","resources":{"hostingSite":"disney-plus--clone","storageBucket":"disney-plus--clone.appspot.com","locationId":"asia-southeast2"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'disney-plus--clone'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2021-05-16T13:23:36.559Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-05-16T13:23:36.559Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-16T13:23:37.164Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Sun, 16 May 2021 13:23:37 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-16T13:23:37.313Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/disney-plus--clone/versions  
+ {"config":{},"labels":{"deployment-tool":"cli-firebase"}}

@@ -2,38 +2,38 @@ import React from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { selectMovies } from '../features/movie/movieSlice';
-import { useSelector } from  'react-redux';
-import {selectUserName} from '../features/user/userSlice';
+import { useSelector } from 'react-redux';
+import { selectUserName } from '../features/user/userSlice';
 
 function Movies() {
 
     const movies = useSelector(selectMovies);
-    const userName= useSelector(selectUserName);
+    const userName = useSelector(selectUserName);
     console.log(movies);
     return (
         <Container>
             <h4> Recommended for You</h4>
             <Content>
-                
-            {movies &&
+
+                {movies &&
                     movies.map((movie) => (
                         //  console.log(movie);
-                       
-                <Wrap key={movie.id}> 
-                {
-                    !userName ? 
-                    <Link to = "/login" >
-                    <img src={movie.cardImg} />
-                    </Link>
-                    :
-                    <Link to = {`/detail/${movie.id}`} >
-                    <img src={movie.cardImg} />
-                    </Link>
-                }
-                </Wrap>
+
+                        <Wrap key={movie.id}>
+                            {
+                                !userName ?
+                                    <Link to="/login" >
+                                        <img src={movie.cardImg} />
+                                    </Link>
+                                    :
+                                    <Link to={`/detail/${movie.id}`} >
+                                        <img src={movie.cardImg} />
+                                    </Link>
+                            }
+                        </Wrap>
                     ))
                 }
-                
+
             </Content>
         </Container>
     )
@@ -58,7 +58,7 @@ const Wrap = styled.div`
    box-shadow: rgb(0 0 0/ 69%) 0px 26px 30px -10px, 
         rgb(0 0 0 / 73%) 0px 16px 10px -10px;
    transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
-
+   margin-bottom: 15px;
 
    img{
         width: 100%;

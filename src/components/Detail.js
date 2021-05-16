@@ -67,6 +67,7 @@ const Container = styled.div`
     min-height: calc(100vh - 70px);
     padding: 0 calc(3.5vw + 5px);
     position: relative;
+    margin-left: 10px;
 `
 
 const Background = styled.div`
@@ -100,6 +101,8 @@ const ImageTitle = styled.div`
 const Controls= styled.div`
     display: flex;
     align-items: center;
+    margin-top: 20px;
+    
 `
 
 const PlayButton= styled.button`
