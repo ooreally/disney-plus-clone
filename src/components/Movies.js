@@ -12,7 +12,7 @@ function Movies() {
     console.log(movies);
     return (
         <Container>
-            <h4> Recommended for You</h4>
+            <H> Recommended for You</H>
             <Content>
 
                 {movies &&
@@ -47,8 +47,23 @@ const Container = styled.div`
 
 const Content = styled.div`
     display: grid;
+    overflow: hidden;
     grid-gap: 25px;
+    
     grid-template-columns: repeat(4, minmax(0, 1fr));
+   
+    padding: 10px;
+    margin: 15px 10px;
+   
+    @media only screen and (max-width: 600px){
+        grid-template-rows: 200px;
+        grid-column-gap: 150px;
+        grid-auto-columns: 0px;
+        grid-auto-flow: column;
+        // margin-top: 5px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
 `
 
 const Wrap = styled.div`
@@ -58,7 +73,17 @@ const Wrap = styled.div`
    box-shadow: rgb(0 0 0/ 69%) 0px 26px 30px -10px, 
         rgb(0 0 0 / 73%) 0px 16px 10px -10px;
    transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
-   margin-bottom: 15px;
+
+
+   @media only screen and (max-width: 800px){
+    // margin-top: 5px;
+        width: 9rem;
+       height: 11rem;
+       
+    //    img{
+    //     object-fit: fill;
+    //     }
+   }
 
    img{
         width: 100%;
@@ -70,4 +95,10 @@ const Wrap = styled.div`
         transform: scale(1.05);
         border-color: rgba(249, 249, 249, 0.8);
     }
+`
+
+const H =styled.h4`
+@media only screen and (max-width: 700px){
+    margin: 15px;
+}
 `

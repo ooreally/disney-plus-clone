@@ -47,10 +47,20 @@ export default Viewers
 
 const Container = styled.div`
     margin-top: 30px;
-    padding: 30px 0px 30px;
+    padding: 30px 0px 30px 10px;
     display: grid;
     grid-gap: 25px;
+    // padding: 10px;
     grid-template-columns: repeat(5, minmax(0, 1fr));
+    // margin-right: 0px;
+    @media only screen and (max-width: 700px){
+        padding-right: 20px;
+        grid-gap: 120px;
+       
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+    
 `
 
 const Wrap = styled.div`
@@ -62,6 +72,15 @@ const Wrap = styled.div`
     transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
     position: relative;
     
+        @media only screen and (max-width: 700px){
+            height: 5rem;
+            width: 7rem;
+            // overflow-x: scroll;
+            // overflow-y: hidden;
+        }
+
+    
+
     img{
         width: 100%;
         height: 100%;

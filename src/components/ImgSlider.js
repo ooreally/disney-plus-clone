@@ -58,10 +58,17 @@ const Carousel = styled(Slider)`
         z-index: 1;
     }
 
+    @media only screen and (max-width: 700px){
+        margin: 5px 25px 0px 25px;
+        align-items:center;
+        overflow: visible;
+        object-fit: fill;
+    }
 
 `
 const Wrap = styled.div`
     cursor: pointer;
+
     img{
         border-radius: 4px;
         width: 100%;
@@ -73,5 +80,17 @@ const Wrap = styled.div`
         &:hover {
             border: 4px solid rgba(249, 249, 249, 0.8);
         }
+
+        
     }
+
+    @media only screen and (max-width: 770px){
+        
+        img{
+            height: 10.5rem;
+            width: 100%;
+        }
+    }
+
+    
 `

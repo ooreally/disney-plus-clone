@@ -1,4 +1,4 @@
-import React , {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import {
@@ -8,19 +8,18 @@ import {
     setUserLogout
 } from '../features/user/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import {auth , provider} from '../firebase';
+import { auth, provider } from '../firebase';
 
 function Header() {
 
-    const userName= useSelector(selectUserName);
-    const userPhoto= useSelector(selectUserPhoto);
+    const userName = useSelector(selectUserName);
+    const userPhoto = useSelector(selectUserPhoto);
     const dispatch = useDispatch()
     const history = useHistory();
-    
-    useEffect( () => {
+
+    useEffect(() => {
         auth.onAuthStateChanged(async (user) => {
-            if(user)
-            {
+            if (user) {
                 dispatch(setUserLogin({
                     name: user.displayName,
                     email: user.email,
@@ -28,89 +27,95 @@ function Header() {
                 }))
                 history.push('/');
             }
-            
+
         })
-    },[])
-    
-    
+    }, [])
+
+
     const signIn = () => {
         auth.signInWithPopup(provider)
-        .then((result) =>
-        {
-            //console.log(result.user);
-            const user = result.user;
-            dispatch(setUserLogin({
-                name: user.displayName,
-                email: user.email,
-                photo: user.photoURL
-            }))
-            history.push('/');
-        })
+            .then((result) => {
+                //console.log(result.user);
+                const user = result.user;
+                dispatch(setUserLogin({
+                    name: user.displayName,
+                    email: user.email,
+                    photo: user.photoURL
+                }))
+                history.push('/');
+            })
 
     }
     const signOut = () => {
         auth.signOut()
-        .then(
-            () => {       
-                history.push('/login');
-            dispatch(setUserLogout());
-            
-            })
+            .then(
+                () => {
+                    history.push('/login');
+                    dispatch(setUserLogout());
+
+                })
     }
     return (
         <Nav>
-           <Logo src="/images/logo.svg"/>
-           {
-               !userName ? 
-               <LoginContainer>
-                   <Login onClick= {signIn}>Login</Login>
-               </LoginContainer>
-                : 
-               <>
-               <NavMenu>
-                <a>
-                    <img src= "/images/home-icon.svg"/>
-                    <span>HOME</span>
-                </a>
+            <Logo src="/images/logo.svg" />
+            {
+                !userName ?
+                    <LoginContainer>
+                        <Login onClick={signIn}>Login</Login>
+                    </LoginContainer>
+                    :
+                    <>
+                        <NavMenu>
+                            <a href="/">
+                                <img src="/images/home-icon.svg" />
+                                <span>HOME</span>
+                            </a>
 
-                <a>
-                    <img src= "/images/search-icon.svg"/>
-                    <span>SEARCH</span>
-                </a>
+                            <a href="/">
+                                <img src="/images/search-icon.svg" />
+                                <span>SEARCH</span>
+                            </a>
 
-                <a>
-                    <img src= "/images/watchlist-icon.svg"/>
-                    <span>WATCHLIST</span>
-                </a>
+                            <a href="/">
+                                <img src="/images/watchlist-icon.svg" />
+                                <span>WATCHLIST</span>
+                            </a>
 
-                <a>
-                    <img src= "/images/movie-icon.svg"/>
-                    <span>MOVIES</span>
-                </a>    
+                            <a href="/">
+                                <img src="/images/movie-icon.svg" />
+                                <span>MOVIES</span>
+                            </a>
 
-                <a>
-                    <img src= "/images/series-icon.svg"/>
-                    <span>SERIES</span>
-                </a>
+                            <a href="/">
+                                <img src="/images/series-icon.svg" />
+                                <span>SERIES</span>
+                            </a>
 
-            </NavMenu>
-            <UserImg onClick={signOut} src= {userPhoto} />
-                </>
-           }
-            
+                        </NavMenu>
+
+                        <UserImg onClick={signOut} src={userPhoto} />
+                    </>
+            }
+
         </Nav>
     )
 }
 
 export default Header
 
-const Nav = styled.nav `
+const Nav = styled.nav`
     height: 70px;
+    width:100%;
     background: #090b13;
     display: flex;
     align-items: center;
     padding: 0 36px;
-    overflow-x: hidden;
+    overflow: hidden;
+    position: sticky;
+    top:0;
+    z-index: 1;
+    
+}
 `
 const Logo = styled.img`
     width:80px;
@@ -121,7 +126,12 @@ const NavMenu = styled.div`
     margin-left: 25px;
     align-items:center;
 
-    a{
+    @media only screen and (max-width: 700px) {
+        display: none;
+    }
+    
+    a{  
+        text-decoration: none;
         display: flex;
         align-items: center;
         padding: 0 12px;
@@ -132,6 +142,7 @@ const NavMenu = styled.div`
     
 
         span{
+            color: white;
         font-size: 13px;
         letter-spacing: 1.42px;
         position: relative;
@@ -162,11 +173,19 @@ const NavMenu = styled.div`
         
     }
 `
-const UserImg= styled.img`
+const UserImg = styled.img`
     width: 48px;
     height: 48px;
     border-radius: 50%;
     cursor: pointer;
+   
+    @media only screen and (max-width: 700px) {
+        width: 40px;
+        height: 40px;
+        float:right;
+        margin-left: auto;
+
+    } 
 `
 const LoginContainer = styled.div`
     display: flex;
