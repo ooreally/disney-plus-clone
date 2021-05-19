@@ -41,6 +41,7 @@ const FootNav = styled.nav`
 
 display: none;
 @media only screen and (max-width: 700px){
+    bottom: 0;
     display: flex;
     background: rgba(0,0,0,0.9);
     width: 100%;
@@ -48,9 +49,7 @@ display: none;
     align-items: center;
     height: 50px;
     width: 100%;
-    bottom: 0px;
-    overflow: visible;
-    
+    overflow-y: hidden;
 
 }
 

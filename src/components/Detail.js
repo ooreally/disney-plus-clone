@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
-import { Link, Route, useParams, useHistory } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import db from '../firebase';
 
 
@@ -8,8 +8,7 @@ function Detail() {
 
     const { id } = useParams();
     const [movie, setMovie] = useState();
-    const [player, setPlayer] = useState(false);
-    const history = useHistory();
+
     useEffect(() => {
         db.collection("movies").doc(id).get().then((doc) => {
             if (doc.exists) {
@@ -35,14 +34,14 @@ function Detail() {
                     <Controls>
 
                         <PlayButton >
-                            <Link to="/sampleVideo">
+                            <Link to={`/sampleVideo/${id}`}>
                                 <img src="/images/play-icon-black.png" />
                                 <span>PLAY</span>
                             </Link>
                         </PlayButton>
 
                         <TrailerButton>
-                            <Link to="/sampleVideo">
+                            <Link to={`/sampleVideo/${id}`}>
                                 <img src="/images/play-icon-white.png" />
                                 <span>TRAILER</span>
                             </Link>
@@ -50,7 +49,7 @@ function Detail() {
                         <AddButton>
                             <span>
                                 +
-                        </span>
+                            </span>
                         </AddButton>
                         <GroupWatchButton>
                             <img src="/images/group-icon.png" />
@@ -95,8 +94,7 @@ const Background = styled.div`
     }
     @media only screen and (max-width: 700px){
         img{
-            
-            object-fit: fill;
+            object-fit: cover;
         }
     }
 `
@@ -204,4 +202,5 @@ const Description = styled.div`
     font-size: 20px;
     margin-top: 16px;
     max-width: 760px;
+    
 `

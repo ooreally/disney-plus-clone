@@ -9,7 +9,7 @@ function Movies() {
 
     const movies = useSelector(selectMovies);
     const userName = useSelector(selectUserName);
-    console.log(movies);
+    // console.log(movies);
     return (
         <Container>
             <H> Recommended for You</H>
@@ -42,7 +42,7 @@ function Movies() {
 export default Movies
 
 const Container = styled.div`
-
+    
 `
 
 const Content = styled.div`
@@ -52,8 +52,8 @@ const Content = styled.div`
     
     grid-template-columns: repeat(4, minmax(0, 1fr));
    
-    padding: 10px;
-    margin: 15px 10px;
+    padding: 10px ;
+    margin: 10px 0px;
    
     @media only screen and (max-width: 600px){
         grid-template-rows: 200px;
@@ -76,13 +76,10 @@ const Wrap = styled.div`
 
 
    @media only screen and (max-width: 800px){
-    // margin-top: 5px;
+    
         width: 9rem;
        height: 11rem;
        
-    //    img{
-    //     object-fit: fill;
-    //     }
    }
 
    img{
@@ -97,7 +94,7 @@ const Wrap = styled.div`
     }
 `
 
-const H =styled.h4`
+const H = styled.h4`
 @media only screen and (max-width: 700px){
     margin: 15px;
 }

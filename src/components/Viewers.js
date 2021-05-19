@@ -4,41 +4,38 @@ import styled from 'styled-components';
 function Viewers() {
     return (
         <Container>
-            {/* <video autoplay loop muted>
-                    <source src="/videos/disney.mp4" type="video/mp4"/>
-                </video> */}
             <Wrap>
-                
+
                 <video autoplay="true" loop muted>
-                    <source src="/videos/disney.mp4" type="video/mp4"/>
+                    <source src="/videos/disney.mp4" type="video/mp4" />
                 </video>
-                <img src="/images/viewers-disney.png"/>
+                <img src="/images/viewers-disney.png" />
             </Wrap>
             <Wrap>
                 <video autoplay="true" loop muted>
-                    <source src="/videos/pixar.mp4" type="video/mp4"/>
+                    <source src="/videos/pixar.mp4" type="video/mp4" />
                 </video>
-                <img src="/images/viewers-pixar.png"/>
+                <img src="/images/viewers-pixar.png" />
             </Wrap>
             <Wrap>
                 <video autoplay="true" loop muted>
-                    <source src="/videos/marvel.mp4" type="video/mp4"/>
+                    <source src="/videos/marvel.mp4" type="video/mp4" />
                 </video>
-                <img src="/images/viewers-marvel.png"/>
+                <img src="/images/viewers-marvel.png" />
             </Wrap>
             <Wrap>
                 <video autoplay="true" loop muted>
-                    <source src="/videos/star-wars.mp4" type="video/mp4"/>
+                    <source src="/videos/star-wars.mp4" type="video/mp4" />
                 </video>
-                <img src="/images/viewers-starwars.png"/>
+                <img src="/images/viewers-starwars.png" />
             </Wrap>
             <Wrap>
-                <video  autoplay="true" loop muted>
-                    <source src="/videos/national-geographic.mp4" type="video/mp4"/>
+                <video autoplay="true" loop muted>
+                    <source src="/videos/national-geographic.mp4" type="video/mp4" />
                 </video>
-                <img src="/images/viewers-national.png"/>
-            </Wrap> 
-            
+                <img src="/images/viewers-national.png" />
+            </Wrap>
+
         </Container>
     )
 }
